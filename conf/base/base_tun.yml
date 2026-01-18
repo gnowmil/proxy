@@ -70,6 +70,10 @@ dns:
     - +.stun.*.*.*
     - +.stun.*.*.*.*
     - +.stun.*.*.*.*.*
+    - '+.cloudflare.com'
+    - '+.argotunnel.com'
+    - '+.cloudflareaccess.com'
+    - '+.cftunnel.com'
     - 'geosite:fakeip-filter,cn'
   fallback:
     - https://dns.google/dns-query
@@ -92,6 +96,8 @@ sniffer:
   skip-domain:
     - "Mijia Cloud"
     - "+.push.apple.com"
+    - "+.cloudflare.com"
+    - "+.argotunnel.com"
 
 geodata-mode: true
 geox-url:

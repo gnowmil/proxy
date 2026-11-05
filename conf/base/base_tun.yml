@@ -117,8 +117,15 @@ dns:
 sniffer:
   enable: true
   parse-pure-ip: true
-  force-domain:
-    - '+'
+  force-dns-mapping: true
+  # force-domain removed 2026-11-05, replaced by force-dns-mapping above:
+  # a bare '+' in force-domain is rejected by current mihomo (v1.19):
+  # "invalid domain \"+\": \"+\" wildcard must be followed by another label".
+  # force-dns-mapping only forces sniffing for DNS-mapped (fake-ip/redir-host)
+  # traffic, to verify the real domain, instead of sniffing every connection;
+  # parse-pure-ip (above) still covers pure-IP traffic with no known domain.
+  # If a specific domain is later misrouted, add it as '+.example.com' to
+  # force-domain, not a bare '+'.
   sniff:
     HTTP:
       ports: [80, 8080-8880]

@@ -47,7 +47,7 @@ tun:
     - 172.16.0.0/12
     - 100.64.0.0/10
     - 10.0.0.1/32
-  # Do NOT exclude 198.18.0.0/15: fake-ip packets must enter TUN.
+  # Do NOT exclude 28.0.0.0/8: fake-ip packets must enter TUN.
   udp-timeout: 300
   # Keep true for Xbox / PS5 / Switch: endpoint-independent (full-cone) UDP
   # mapping is what lets consoles get Open / Type 2 NAT for P2P, party chat
@@ -95,7 +95,7 @@ dns:
     "geosite:gfw,proxy":
       - https://dns.google/dns-query
       - https://cloudflare-dns.com/dns-query
-  fake-ip-range: 198.18.0.1/16
+  fake-ip-range: 28.0.0.1/8
   fake-ip-filter:
     - '*'
     - '+.lan'

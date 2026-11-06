@@ -36,7 +36,7 @@ tun:
   dns-hijack:
     - any:53
     - tcp://any:53
-  mtu: 1500
+  mtu: 1480  # PPPoE MTU 1480, avoid UDP fragmentation
   auto-route: true
   auto-redirect: false
   auto-detect-interface: true

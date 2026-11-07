@@ -89,7 +89,13 @@ dns:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
   nameserver-policy:
-    "geosite:cn,apple,apple-cn,google-cn,microsoft-cn,games-cn,private":
+    "geosite:cn,apple-cn,google-cn,microsoft-cn,games-cn,private":
+      - https://dns.alidns.com/dns-query
+      - https://doh.pub/dns-query
+    # Apple (2026-11-07): geosite:apple was removed from geosite-all.dat,
+    # only apple-cn remains, so Apple domains are listed explicitly here
+    # (same set as fake-ip-filter below) to resolve via AliDNS / China CDN.
+    "+.apple.com,+.icloud.com,+.cdn-apple.com,+.mzstatic.com,+.aaplimg.com,+.icloud-content.com,+.apple-cloudkit.com":
       - https://dns.alidns.com/dns-query
       - https://doh.pub/dns-query
     "geosite:gfw,proxy":
@@ -97,7 +103,8 @@ dns:
       - https://cloudflare-dns.com/dns-query
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
-    - '*'
+    # NOTE: the old '*' entry was removed (2026-11-07) - it matched nothing
+    # (fake-IPs were still returned for Apple/Google), so it was dead config.
     - '+.lan'
     - '+.local'
     - '+.home.arpa'

@@ -89,7 +89,7 @@ dns:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
   nameserver-policy:
-    "geosite:cn,apple-cn,google-cn,microsoft-cn,games-cn,private":
+    "geosite:cn,apple,apple-cn,google-cn,microsoft-cn,games-cn,private":
       - https://dns.alidns.com/dns-query
       - https://doh.pub/dns-query
     "geosite:gfw,proxy":
@@ -110,6 +110,17 @@ dns:
     - '+.cloudflareaccess.com'
     - '+.cftunnel.com'
     - 'geosite:fakeip-filter,cn'
+    # Apple (2026-11-07): bypass fake-IP so CHR-gateway devices get real
+    # IPs and connect direct to Apple China CDN, instead of a fake-IP that
+    # only works via mihomo. Android clouds are already in ChinaList.txt
+    # (AGH -> AliDNS), so they never reach mihomo and need no entry here.
+    - '+.apple.com'
+    - '+.icloud.com'
+    - '+.cdn-apple.com'
+    - '+.mzstatic.com'
+    - '+.aaplimg.com'
+    - '+.icloud-content.com'
+    - '+.apple-cloudkit.com'
   # fallback / fallback-filter removed: deprecated in favour of
   # nameserver-policy above. AdGuardHome is upstream of mihomo in the
   # LAN chain, NOT a mihomo nameserver.

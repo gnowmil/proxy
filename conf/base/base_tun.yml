@@ -167,8 +167,8 @@ sniffer:
 
 geodata-mode: true
 geox-url:
-  geoip: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-geodata/geoip-all.dat"
-  geosite: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-geodata/geosite-all.dat"
+  geoip: "https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-geodata/geoip-all.dat"
+  geosite: "https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-geodata/geosite-all.dat"
   # mmdb / asn removed: no ASN rules are used in this config, so their
   # daily downloads were waste. Re-add them if you add ASN rules later.
 geo-auto-update: true

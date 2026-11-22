@@ -36,7 +36,7 @@ tun:
   dns-hijack:
     - any:53
     - tcp://any:53
-  mtu: 1480  # PPPoE MTU 1480, avoid UDP fragmentation
+  mtu: 1400  # PPPoE MTU is 1480 (CHR gd139.cn); TUN must be lower to leave room for Trojan/TLS overhead, otherwise large packets stall (2026-11-22: YouTube/file downloads slow, small requests fine)
   auto-route: true
   auto-redirect: false
   auto-detect-interface: true
@@ -167,8 +167,8 @@ sniffer:
 
 geodata-mode: true
 geox-url:
-  geoip: "https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-geodata/geoip-all.dat"
-  geosite: "https://gh-proxy.com/https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-geodata/geosite-all.dat"
+  geoip: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-geodata/geoip-all.dat"
+  geosite: "https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-geodata/geosite-all.dat"
   # mmdb / asn removed: no ASN rules are used in this config, so their
   # daily downloads were waste. Re-add them if you add ASN rules later.
 geo-auto-update: true
